@@ -1,8 +1,6 @@
-function add(n1 : number, n2 : number)
-{
-    return n1 + n2;
-}
+enum Role { Admin, User, Loser};
 
-const number1 = 5;
-const number2 = 10.4;
-console.log(add(number1, number2));
+var person : Role;
+
+person = Role.User;
+console.log(person);
