@@ -9,3 +9,5 @@ function combine (input1 : number | string, input2 : number | string)
         return input1.toString() + input2.toString();
     }
 }
+
+console.log(combine(6,14));
