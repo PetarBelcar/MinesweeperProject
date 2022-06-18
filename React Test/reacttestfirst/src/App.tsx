@@ -1,8 +1,17 @@
-import React from 'react';
+import Backdrop from "./components/backdrop";
+import Modal from "./components/modal";
+import TodoEntity from "./components/todo";
 
 function App() {
   return (
-    <div>Hello world!</div>
+    <div>
+      <h1>Todo list</h1>
+      <TodoEntity title="Start a React procject"/>
+      <TodoEntity title="Create a component"/>
+      <TodoEntity title="Add a prop to the component"/>
+      <Modal />
+      <Backdrop />
+    </div>
   );
 }
 
