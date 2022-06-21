@@ -1,7 +1,7 @@
-function MinesweeperTile(props : {numberOfAdjecentMines : number})
+function MinesweeperTile(props : {numberOfAdjecentMines? : number, isMine : boolean})
 {
     return(
-        <button className="minesweeprTileNotClicked">{props.numberOfAdjecentMines}</button>
+        <button className="minesweeprTileNotClicked">{(props.isMine) ? "X" : ""}</button>
     )
 }
 
