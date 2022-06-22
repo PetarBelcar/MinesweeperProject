@@ -4,13 +4,13 @@ import Minsweeper from "./minesweeper";
 
 function App() {
   return (
-    <body>
+    <div>
       <Header />
       <section>
         <LifeCounter />
         <Minsweeper seed={45892473}/>
       </section>
-    </body>
+    </div>
   );
 }
 
