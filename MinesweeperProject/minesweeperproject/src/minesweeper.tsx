@@ -34,13 +34,24 @@ function Minsweeper(props : {seed:number}):JSX.Element
         for (let yAxis = 0; yAxis < dimensionOfMinesweeper; yAxis++) {
             minefieldData[yAxis] = [];
             for (let xAxis = 0; xAxis < dimensionOfMinesweeper; xAxis++) {
-                let isMine = (numberOfMines >= 40) ? false : (Math.random() >= 0.12) ? false : true;
-                numberOfMines += (isMine) ? 1 : 0;
+                let isMine = false;
 
                 minefieldData[yAxis][xAxis] = {isMine};
-                minefieldData[yAxis][xAxis].isMine = isMine;
             }
-            
+        }
+
+        while(numberOfMines <= dimensionOfMinesweeper * dimensionOfMinesweeper * 0.15 + 1)
+        {
+            let xRandom = Math.round(Math.random() * (dimensionOfMinesweeper - 1));
+            let yRandom = Math.round(Math.random() * (dimensionOfMinesweeper - 1));
+
+            console.log(xRandom + ":" + yRandom);
+
+            if(!minefieldData[yRandom][xRandom].isMine)
+            {
+                minefieldData[yRandom][xRandom].isMine = true;
+                numberOfMines++;
+            }
         }
 
         for (let yAxis = 0; yAxis < dimensionOfMinesweeper; yAxis++) {
