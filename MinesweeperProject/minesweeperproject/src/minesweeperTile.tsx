@@ -1,20 +1,20 @@
 import { useState } from "react";
 
-function MinesweeperTile(props : {numberOfAdjacentMines : number, isMine : boolean, isClicked : boolean})
+function MinesweeperTile(props : {numberOfAdjacentMines : number, isMine : boolean, isClicked : boolean, adjecentNoMine : boolean})
 {
     var [tileIsClicked, setTileIsClicked] = useState(false);
 
     var setTileToClicked = () => setTileIsClicked(true);
 
-    var setToClickedIfNoMines = () => 
+    var setToClickedIfNoMinesOrAdjecentNoMine = () => 
     {
-        if(!tileIsClicked && props.numberOfAdjacentMines === 0 && props.isMine === false) 
+        if(!tileIsClicked && ((props.numberOfAdjacentMines === 0 && !props.isMine) || (!props.adjecentNoMine && !props.isMine)))
         {
             setTileToClicked();
         }
     }
 
-    setToClickedIfNoMines();
+    setToClickedIfNoMinesOrAdjecentNoMine();
 
     return(
         <button className={(tileIsClicked) ? "minesweeprTileClicked" : "minesweeprTileNotClicked"} onClick={setTileToClicked}>{(tileIsClicked) ? ((props.isMine) ? "X" : ((props.numberOfAdjacentMines === 0 ) ? "" : props.numberOfAdjacentMines.toString())) : ""}</button>

@@ -1,10 +1,15 @@
 import MinesweeperTile from "./minesweeperTile";
 
+interface minefieldTileData
+{
+    isMine : boolean
+}
+
 var dimensionOfMinesweeper = 15;
 
 function Minsweeper(props : {seed:number}):JSX.Element
 {
-    var CalculateTheNumberOfAdjecentMines = (yAxis : number, xAxis: number, minefieldData : {isMine : boolean}[][]) : number =>
+    var CalculateTheNumberOfAdjecentMines = (yAxis : number, xAxis: number, minefieldData : minefieldTileData[][]) : number =>
     {
         var numberOfAdjacentMines = 0;
 
@@ -19,13 +24,25 @@ function Minsweeper(props : {seed:number}):JSX.Element
         return numberOfAdjacentMines;
     }
 
-    function GenerateMinefield(seed : number) : JSX.Element[][]
+    var DoesTileHaveAdjacentNoMineTiles = (minefieldData : minefieldTileData[][], yAxis : number, xAxis : number) : boolean =>
     {
-        interface minefieldTileData
+        var doesTileHaveAdjecentNoMineTiles = true;
+
+        for (let i = yAxis - 1; i <= yAxis + 1; i++) 
         {
-            isMine : boolean
+            for(let j = xAxis - 1; j <= xAxis + 1; j++)
+            {
+                if(!(i === yAxis  && j === xAxis) && (i >= 0 && j >= 0) && (i < dimensionOfMinesweeper && j < dimensionOfMinesweeper)) 
+                    if(CalculateTheNumberOfAdjecentMines(i, j, minefieldData) === 0) doesTileHaveAdjecentNoMineTiles = false;
+            }
         }
 
+        //console.log(yAxis + ":" + xAxis + " " + minefieldData[yAxis][xAxis].isMine)
+        return doesTileHaveAdjecentNoMineTiles;
+    }
+
+    function GenerateMinefield(seed : number) : JSX.Element[][]
+    {
         var minefieldData : minefieldTileData[][] = [];
         var minefieldJSX : JSX.Element[][] = [];
         var numberOfMines = 0;
@@ -60,7 +77,7 @@ function Minsweeper(props : {seed:number}):JSX.Element
                 let isMine = minefieldData[yAxis][xAxis].isMine;
                 let numberOfAdjacentMines = CalculateTheNumberOfAdjecentMines(yAxis, xAxis, minefieldData);
 
-                minefieldJSX[yAxis][xAxis] = <MinesweeperTile key={yAxis + ":" + xAxis} isMine={isMine} isClicked={false} numberOfAdjacentMines={numberOfAdjacentMines}/>
+                minefieldJSX[yAxis][xAxis] = <MinesweeperTile key={yAxis + ":" + xAxis} isMine={isMine} isClicked={false} numberOfAdjacentMines={numberOfAdjacentMines} adjecentNoMine={DoesTileHaveAdjacentNoMineTiles(minefieldData, yAxis, xAxis)}/>
             }
         }
         
