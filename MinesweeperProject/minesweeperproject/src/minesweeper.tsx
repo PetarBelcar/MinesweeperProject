@@ -60,7 +60,7 @@ function Minsweeper(props : {seed:number}):JSX.Element
                 let isMine = minefieldData[yAxis][xAxis].isMine;
                 let numberOfAdjacentMines = CalculateTheNumberOfAdjecentMines(yAxis, xAxis, minefieldData);
 
-                minefieldJSX[yAxis][xAxis] = <MinesweeperTile isMine={isMine} isClicked={false} numberOfAdjacentMines={numberOfAdjacentMines}/>
+                minefieldJSX[yAxis][xAxis] = <MinesweeperTile key={yAxis + ":" + xAxis} isMine={isMine} isClicked={false} numberOfAdjacentMines={numberOfAdjacentMines}/>
             }
         }
         

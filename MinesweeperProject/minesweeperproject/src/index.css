@@ -30,7 +30,7 @@ header
   margin-left: 10%;
   width: 80%;
   margin-right: 10%;
-  vertical-align: middle;
+  /*vertical-align: middle;*/
 }
 
 #lifeCounter
@@ -48,18 +48,19 @@ header
 {
   width: 6.66%;
   aspect-ratio: 1 / 1;
-  /*padding: 1%;*/
-  border-radius: 1%;
+  padding: 1%;
+  border-radius: 20%;
   background-color: #ECCF66;
   text-align: center;
+
 }
 
 .minesweeprTileClicked
 {
   width: 6.66%;
   aspect-ratio: 1 / 1;
-  /*padding: 1%;*/
-  border-radius: 1%;
+  padding: 1%;
+  border-radius: 20%;
   background-color: #7E5E47;
   text-align: center;
   color: #95BB00;
