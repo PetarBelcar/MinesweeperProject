@@ -4,7 +4,7 @@ import Minsweeper from "./minesweeper";
 function App() {
   var mineClicked = () : void =>
   {
-
+    console.log("Mine was clicked!");
   }
 
 

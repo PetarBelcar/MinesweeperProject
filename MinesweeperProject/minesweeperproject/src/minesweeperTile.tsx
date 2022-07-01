@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function MinesweeperTile(props : {numberOfAdjacentMines : number, isMine : boolean, isClicked : boolean, adjecentNoMine : boolean})
+function MinesweeperTile(props : {numberOfAdjacentMines : number, isMine : boolean, isClicked : boolean, adjecentNoMine : boolean, mineClicked : Function})
 {
     var [tileIsClicked, setTileIsClicked] = useState(false);
 
@@ -12,6 +12,8 @@ function MinesweeperTile(props : {numberOfAdjacentMines : number, isMine : boole
         {
             setTileToClicked();
         }
+
+        if(tileIsClicked && props.isMine) props.mineClicked();
     }
 
     setToClickedIfNoMinesOrAdjecentNoMine();
