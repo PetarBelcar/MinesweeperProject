@@ -6,20 +6,27 @@ function MinesweeperTile(props : {numberOfAdjacentMines : number, isMine : boole
 
     var setTileToClicked = () => setTileIsClicked(true);
 
-    var setToClickedIfNoMinesOrAdjecentNoMine = () => 
+    var setToClickedIfNoMinesOrAdjecentNoMine = () : void => 
     {
-        if(!tileIsClicked && ((props.numberOfAdjacentMines === 0 && !props.isMine) || (!props.adjecentNoMine && !props.isMine)))
+        if((!tileIsClicked && (props.numberOfAdjacentMines === 0 || !props.adjecentNoMine)) && !props.isMine)
         {
             setTileToClicked();
         }
+    }
 
-        if(tileIsClicked && props.isMine) props.mineClicked();
+    var clickOnTile = () : void => 
+    {
+        if(!tileIsClicked)
+        {
+            setTileToClicked();
+            if(props.isMine) props.mineClicked();
+        }
     }
 
     setToClickedIfNoMinesOrAdjecentNoMine();
 
     return(
-        <button className={(tileIsClicked) ? "minesweeprTileClicked" : "minesweeprTileNotClicked"} onClick={setTileToClicked}>{(tileIsClicked) ? ((props.isMine) ? "X" : ((props.numberOfAdjacentMines === 0 ) ? "" : props.numberOfAdjacentMines.toString())) : ""}</button>
+        <button className={(tileIsClicked) ? "minesweeprTileClicked" : "minesweeprTileNotClicked"} onClick={clickOnTile}>{(tileIsClicked) ? ((props.isMine) ? "X" : ((props.numberOfAdjacentMines === 0 ) ? "" : props.numberOfAdjacentMines.toString())) : ""}</button>
     )
 }
 

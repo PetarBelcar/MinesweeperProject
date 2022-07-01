@@ -62,7 +62,7 @@ function Minsweeper(props : {seed:number, mineCLicked : Function, dimensionOfMin
             let xRandom = Math.round(Math.random() * (dimensionOfMinesweeper - 1));
             let yRandom = Math.round(Math.random() * (dimensionOfMinesweeper - 1));
 
-            console.log(xRandom + ":" + yRandom);
+            //console.log(xRandom + ":" + yRandom);
 
             if(!minefieldData[yRandom][xRandom].isMine)
             {

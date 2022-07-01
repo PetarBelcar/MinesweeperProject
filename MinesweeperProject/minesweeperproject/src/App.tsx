@@ -1,12 +1,14 @@
+import { useState } from "react";
 import Header from "./header";
 import Minsweeper from "./minesweeper";
 
 function App() {
+  var [minesClicked] = useState(0);
+
   var mineClicked = () : void =>
   {
-    console.log("Mine was clicked!");
+    console.log("Number of mines clicked: " + ++minesClicked);
   }
-
 
   return (
     <div>
