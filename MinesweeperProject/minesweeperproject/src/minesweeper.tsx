@@ -5,10 +5,10 @@ interface minefieldTileData
     isMine : boolean
 }
 
-var dimensionOfMinesweeper = 15;
-
-function Minsweeper(props : {seed:number}):JSX.Element
+function Minsweeper(props : {seed:number, mineCLicked : Function, dimensionOfMinesweeper : number}):JSX.Element
 {
+    var dimensionOfMinesweeper = props.dimensionOfMinesweeper;
+
     var CalculateTheNumberOfAdjecentMines = (yAxis : number, xAxis: number, minefieldData : minefieldTileData[][]) : number =>
     {
         var numberOfAdjacentMines = 0;

@@ -1,14 +1,19 @@
 import Header from "./header";
-import LifeCounter from "./lifeCounter";
 import Minsweeper from "./minesweeper";
 
 function App() {
+  var mineClicked = () : void =>
+  {
+
+  }
+
+
   return (
     <div>
       <Header />
       <section>
-        <LifeCounter />
-        <Minsweeper seed={45892473}/>
+        <div id="lifeCounter"></div>
+        <Minsweeper seed={45892473} mineCLicked={mineClicked} dimensionOfMinesweeper={15}/>
       </section>
     </div>
   );
