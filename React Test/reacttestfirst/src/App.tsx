@@ -1,12 +1,22 @@
-import TodoEntity from "./components/todo";
+import { Route, Routes } from 'react-router-dom';
+
+import AllMeetups from './pages/AllMeetups';
+import Favorites from './pages/Favorites';
+import NewMeetups from './pages/NewMeetups';
 
 function App() {
   return (
     <div>
-      <h1>Todo list</h1>
-      <TodoEntity title="Start a React procject"/>
-      <TodoEntity title="Create a component"/>
-      <TodoEntity title="Add a prop to the component"/>
+      <Routes>
+        <Route path='/' element={<AllMeetups />}>
+        </Route>
+
+        <Route path='/newmeetup' element={<NewMeetups />}>
+        </Route>
+
+        <Route path='/favorites' element={<Favorites />}>
+        </Route>
+      </Routes>
     </div>
   );
 }

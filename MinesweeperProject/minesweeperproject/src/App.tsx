@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "./header";
 import Minsweeper from "./minesweeper";
 
@@ -10,11 +10,12 @@ function App() {
     console.log("Number of mines clicked: " + ++minesClicked);
   }
 
+
   return (
     <div>
       <Header />
       <section>
-        <div id="lifeCounter"></div>
+        <div id="lifeCounter">{}</div>
         <Minsweeper seed={45892473} mineCLicked={mineClicked} dimensionOfMinesweeper={15}/>
       </section>
     </div>
