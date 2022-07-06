@@ -1,7 +1,9 @@
 var Favorites = () =>
 {
     return(
-        <div>Favorites page</div>
+        <div>
+            <div>Favorites page</div>
+        </div>
     );
 }
 

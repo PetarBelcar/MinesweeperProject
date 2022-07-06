@@ -1,7 +1,11 @@
+
+
 var AllMeetups = () =>
 {
     return(
-        <div>All meetups page</div>
+        <div>
+            <div>All meetups page</div>
+        </div>
     );
 }
 

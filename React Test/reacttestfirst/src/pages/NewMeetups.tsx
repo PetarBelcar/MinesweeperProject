@@ -1,7 +1,9 @@
 var NewMeetups = () =>
 {
     return(
-        <div>New meetups page</div>
+        <div>
+            <div>New meetups page</div>
+        </div>
     );
 }
 

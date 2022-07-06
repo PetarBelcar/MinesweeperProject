@@ -1,0 +1,13 @@
+.navigation
+{
+    background-color: aqua;
+}
+
+.button
+{
+    background-color: blueviolet;
+    padding: 2px;
+    border: 1px solid black;
+    color: yellow;
+    margin-right: 2px;
+}
