@@ -1,0 +1,10 @@
+.meetupCard
+{
+    background-color: antiquewhite;
+    width: 25%;
+    aspect-ratio: 6 / 1;
+    border-radius: 10%;
+    border: 2px solid black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+}
