@@ -2,7 +2,6 @@
 {
     background-color: antiquewhite;
     width: 25%;
-    height: 5%;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     margin-bottom: 10px;
@@ -12,4 +11,16 @@
 {
     margin-left: 5%;
     margin-right: 5%;
+}
+
+.meetupCard > h3
+{
+    margin-left: 30%;
+}
+
+.meetupCard > form
+{
+    padding-top: 1%;
+    padding-bottom: 5%;
+    margin-left: 5%;
 }
