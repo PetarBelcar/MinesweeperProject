@@ -1,4 +1,4 @@
-import classes from './meetup.module.css';
+import Card from './ui/Card'
 
 interface meetup{
     name : string,
@@ -8,7 +8,11 @@ interface meetup{
 
 var Meetup = (props : meetup) => {
     return(
-        <div className={classes.meetupCard}>{props.name}, {props.time}, {props.date}</div>
+        <Card>
+            <div>{props.name}</div>
+            <div>{props.date}</div>
+            <div>{props.time}</div>
+        </Card>
     )
 }
 
