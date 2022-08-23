@@ -3,7 +3,7 @@ import Header from "./header";
 import Minsweeper from "./minesweeper";
 
 function App() {
-  var [minesClicked] = useState(0);
+  var [minesClicked, setMinesClicked] = useState(0);
 
   var mineClicked = () : void =>
   {

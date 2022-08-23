@@ -23,6 +23,8 @@ function MinesweeperTile(props : {numberOfAdjacentMines : number, isMine : boole
         }
     }
 
+    var number : number;
+
     setToClickedIfNoMinesOrAdjecentNoMine();
 
     return(
